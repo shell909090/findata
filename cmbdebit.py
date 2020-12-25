@@ -5,6 +5,10 @@
 @author: Shell.Xu
 @copyright: 2020, Shell.Xu <shell909090@gmail.com>
 @license: BSD-3-clause
+@comment:
+进入招行大众版，选择查看流水并导出，选择csv格式。将结果用gzip压缩后存放。
+执行脚本时，第一个参数跟卡号（尚不支持自动分析），第二个参数跟csv文件。
+stdout会输出所有消费。
 '''
 import sys
 import csv
