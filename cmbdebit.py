@@ -7,7 +7,7 @@
 @license: BSD-3-clause
 @comment:
 进入招行大众版，选择查看流水并导出，选择csv格式。将结果用gzip压缩后存放。
-执行脚本时，第一个参数跟卡号（尚不支持自动分析），第二个参数跟csv文件。
+执行脚本时，第一个参数跟csv文件。
 stdout会输出所有消费。
 '''
 import sys
@@ -17,16 +17,22 @@ import gzip
 from os import path
 
 
+cardnum = None
+
+
 def linefilter(src):
     for line in src:
         line = line.strip()
+        if line.startswith('# 账'):
+            global cardnum
+            cardnum = line.split('********')[1][:4]
         if not line or line.startswith('#'):
             continue
         yield line.replace('\t', '')
 
 
 def main():
-    ''' python3 cmb2csv.py [card num] [file]'''
+    ''' python3 cmb2csv.py [file]'''
     writer = csv.writer(sys.stdout)
 
     with gzip.open(sys.argv[2], 'rt', encoding='utf-8') as fi:
@@ -37,7 +43,7 @@ def main():
                 continue
             if row[6].startswith('转账'):
                 continue
-            writer.writerow([row[0][:6], row[0], sys.argv[1], row[3], row[6]])
+            writer.writerow([row[0][:6], row[0], cardnum, row[3], row[6]])
 
 
 if __name__ == '__main__':
