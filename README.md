@@ -6,6 +6,7 @@
 * cmbdebit.py: 招行银行卡账单
 * spdbcred.py: 浦发信用卡账单
 * wechat_enhance.py: 微信花销增强工具
+* cancel_enhance.py: 消除账内退款记录
 
 # 格式
 
