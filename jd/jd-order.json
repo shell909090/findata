@@ -1,0 +1,73 @@
+{
+  "_id": "jd-order",
+  "startUrl": [
+    "https://order.jd.com/center/list.action?search=0&d=2&s=4096"
+  ],
+  "selectors": [
+    {
+      "id": "items",
+      "type": "SelectorElement",
+      "parentSelectors": [
+        "_root",
+        "next"
+      ],
+      "selector": "tbody",
+      "multiple": true,
+      "delay": 0
+    },
+    {
+      "id": "cost",
+      "type": "SelectorText",
+      "parentSelectors": [
+        "items"
+      ],
+      "selector": ".amount span:nth-of-type(1)",
+      "multiple": false,
+      "regex": "",
+      "delay": 0
+    },
+    {
+      "id": "name",
+      "type": "SelectorGroup",
+      "parentSelectors": [
+        "items"
+      ],
+      "selector": "div.p-name a.a-link",
+      "delay": 0,
+      "extractAttribute": "href"
+    },
+    {
+      "id": "orderid",
+      "type": "SelectorText",
+      "parentSelectors": [
+        "items"
+      ],
+      "selector": "span.number a",
+      "multiple": false,
+      "regex": "",
+      "delay": 0
+    },
+    {
+      "id": "date",
+      "type": "SelectorText",
+      "parentSelectors": [
+        "items"
+      ],
+      "selector": "span.dealtime",
+      "multiple": false,
+      "regex": "",
+      "delay": 0
+    },
+    {
+      "id": "next",
+      "type": "SelectorLink",
+      "parentSelectors": [
+        "_root",
+        "next"
+      ],
+      "selector": "a.next",
+      "multiple": false,
+      "delay": 0
+    }
+  ]
+}

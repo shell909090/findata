@@ -7,6 +7,10 @@
 * spdbcred.py: 浦发信用卡账单
 * wechat_enhance.py: 微信花销增强工具
 * cancel_enhance.py: 消除账内退款记录
+* jd: 京东消费分析工具
+  * jd-order.json: web scraper脚本，抓订单。
+  * jd-type.json: web scraper脚本，抓订单对应的分类。
+  * jd.py: 结合上两项数据，出整合报表。后续可以直接计算分类花销。
 
 # 格式
 
