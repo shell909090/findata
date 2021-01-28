@@ -46,7 +46,11 @@ def main():
                 rec = read_rec(fi)
                 if not rec:
                     break
-                writer.writerow([name, name[:4]+rec[0]] + [rec[i] for i in (4, 3, 2)])
+                if rec[0].startswith('12'):
+                    dt = str(int(name[:4])-1)+rec[0]
+                else:
+                    dt = name[:4]+rec[0]
+                writer.writerow([name, dt] + [rec[i] for i in (4, 3, 2)])
 
 
 if __name__ == '__main__':
