@@ -46,7 +46,7 @@ def main():
                 rec = read_rec(fi)
                 if not rec:
                     break
-                if rec[0].startswith('12'):
+                if rec[0].startswith('12') and name.endswith('01'):
                     dt = str(int(name[:4])-1)+rec[0]
                 else:
                     dt = name[:4]+rec[0]
