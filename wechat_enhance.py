@@ -38,7 +38,8 @@ def main():
                     continue
                 m_card = re_card.match(row[6])
                 if not m_card:
-                    raise Exception(row[6])
+                    # raise Exception(row[6])
+                    continue
                 wechat_info[(date, m_card.groups()[0], row[5].strip('¥'))] = row[2]
 
     writer = csv.writer(sys.stdout)
