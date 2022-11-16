@@ -20,7 +20,7 @@ def read_rec(fi):
     empty_line = 0
     rslt = []
     for line in fi:
-        line = line.strip("￥").strip()
+        line = line.strip("￥").strip('¥').strip()
         if line:
             rslt.append(line)
             empty_line = 0
